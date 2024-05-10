@@ -1,0 +1,76 @@
+.contenedorItemDetailContanier2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenedorItemDetailContanierTexto1,
+.contenedorItemDetailContanierTexto2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px
+}
+
+.textoItemDetailContanier1{
+    font-size: 75px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-weight: bold;
+    text-align: center;
+    margin:0;
+}
+
+.textoItemDetailContanier2{
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    text-align: center;
+    margin:0
+}
+
+.textoItemDetailContanier3{
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    text-align: center;
+    margin:5px;
+    margin-bottom: 20px;
+}
+
+.textoItemDetailContanier4{
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    text-align: center;
+    margin:5px;
+    margin-bottom: 20px;
+}
+
+.textoTipos,
+.textoAtaques,
+.textoPrecio{
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-weight: bold;
+    text-align: center;
+    margin:0
+}
+
+/*
+        <p className="textoTipos">Tipo</p>
+            <div className="contenedorItemDetailContanierTexto1">    
+                {
+                tiposArray.map((tipos)=>{
+                    return <div key={tipos}>
+                            <p className="textoItemDetailContanier3">{tipos}</p>
+                           </div>
+                })
+                }
+            </div>
+            <p className="textoAtaques">Ataques Principales</p>
+            <div className="contenedorItemDetailContanierTexto2">    
+                {
+                ataquesArray.map((ataque)=>{
+                    return  <div key={ataque}>
+                                <p className="textoItemDetailContanier4">{ataque}</p>
+                            </div>
+                })
+                }
+            </div>  */
