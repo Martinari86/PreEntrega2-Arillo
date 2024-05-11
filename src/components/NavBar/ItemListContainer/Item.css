@@ -47,6 +47,19 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     height: auto;
     margin:0;
+    margin-left: 10px;
     font-weight: bold;
     text-align: left;
+}
+
+.linkItem{
+    color:black;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.linkItem:hover{
+    font-weight: bold;
 }

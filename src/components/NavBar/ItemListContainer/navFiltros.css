@@ -1,0 +1,30 @@
+
+
+.listaFiltro{
+    
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap:30px;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.tipoFiltro{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    height: auto;
+    margin:0;
+    font-weight:bold;
+    
+}
+
+.linkFiltro{
+    text-decoration: none;
+    color: black;
+}
+
+.linkFiltro:hover{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+}

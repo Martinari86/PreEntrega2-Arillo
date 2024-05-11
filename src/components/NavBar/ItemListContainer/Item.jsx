@@ -1,5 +1,6 @@
 //Muestra solo la CARD con la informacion del Producto
 import "./Item.css"
+import { Link } from "react-router-dom"
 
 const Item = ({elemento}) => {
   const tiposArray = elemento.tipo
@@ -21,6 +22,7 @@ const Item = ({elemento}) => {
                         }
                     </div>
                  </div>
+                 <Link className="linkItem" to={"/detalle/"+ elemento.id}> Click Para Atraparlo </Link>       
         </div>
     </div>
   )
