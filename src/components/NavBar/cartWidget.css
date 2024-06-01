@@ -1,5 +1,16 @@
-.contenedorCart{
+.contenedorCart-blue{
+    height: 100%;
     display: flex;
+    color: blue;
+    align-items: center;
+    justify-content: center;
+    gap: 10px
+}
+
+.contenedorCart-white{
+    height: 100%;
+    display: flex;
+    color:grey;
     align-items: center;
     justify-content: center;
     gap: 10px
@@ -7,5 +18,9 @@
 
 
 .numero{
-    font-size: 25px;
+    font-size: 25px;    
+}
+
+.linkCartWidget{
+    text-decoration: none;
 }

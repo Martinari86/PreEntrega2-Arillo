@@ -15,7 +15,7 @@ const NavBar = () =>{
             </Link>
             <ul className="lista">
                 <li className="elemento">Poke Home</li>
-                <li className="elemento">Poke Stickers</li>
+                <li className="elemento">Entrenadores PokeStore</li>
                 <li className="elemento">Centro PokeStore</li>
             </ul>
             <CartWidget />

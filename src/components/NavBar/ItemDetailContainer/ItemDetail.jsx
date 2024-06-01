@@ -1,10 +1,13 @@
 
 import { useEffect, useState } from "react";
 import "./ItemDetail.css"
+import ItemCount from "../ItemCount/ItemCount"
+import { useContext } from "react"
+import { CartContext } from "../../../context/CartContext"
 
 const ItemDetail = ({ pokemonDetalle }) => {
-    console.log(pokemonDetalle);
-    
+    //console.log(pokemonDetalle);
+    const{addPokemon} =useContext(CartContext)
     
     const [tiposArray,setTiposArray]=useState([])
     const [ataquesArray,setAtaquesArray] = useState([])
@@ -14,8 +17,18 @@ const ItemDetail = ({ pokemonDetalle }) => {
     setAtaquesArray(pokemonDetalle.ataques);
     },[pokemonDetalle] )
     
-    console.log(tiposArray);
-    console.log(ataquesArray);
+    //console.log(tiposArray);
+    //console.log(ataquesArray);
+
+    const addProduct = (count) => {
+        //Se estructura un producto
+        const productCart= {...pokemonDetalle, cantidad: count}
+        //Se añade el producto al carrito
+        addPokemon(productCart);
+        
+      } 
+
+
     return (
     <div className="contenedorItemDetailContanier">
      <img className="imagenItemDetailContanier" src={pokemonDetalle.imagen} alt={pokemonDetalle.nombre}></img>
@@ -37,6 +50,7 @@ const ItemDetail = ({ pokemonDetalle }) => {
        
             <p className="textoPrecio">Precio</p>
             <p className="textoItemDetailContanier2">{pokemonDetalle.precio} USD</p>
+            <ItemCount stock={pokemonDetalle.id} addProduct={addProduct}/>  
      </div>  
     </div>
   )

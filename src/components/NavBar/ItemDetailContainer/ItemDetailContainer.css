@@ -1,7 +1,9 @@
 .contenedorItemDetailContanier{
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
 }
 
 .contenedorItemDetailContanier2{

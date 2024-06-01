@@ -3,6 +3,9 @@ import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/NavBar/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/NavBar/ItemDetailContainer/ItemDetailContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NavFiltros from './components/NavBar/NavFiltros'
+import { CartProvider } from './context/CartContext'
+import Cart from './components/Cart/Cart'
 
 
 function App() {
@@ -11,13 +14,26 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <NavBar />
-        <Routes>  
-          <Route path='/' element={<ItemListContainer texto1="Bienvenido a Poke Store" texto2="La primera tienda de Stickers de Pokémon" texto3="Busca el tipo que te guste y Atrapalos YA !!!" />}     />
-          <Route path='/tipo/:idTipo' element={<ItemListContainer texto1="Bienvenido a Poke Store" texto2="La primera tienda de Stickers de Pokémon" texto3="Busca el tipo que te guste y Atrapalos YA !!!" />}     />
-          <Route path='/detalle/:id' element={<ItemDetailContainer />} />
-          
-        </Routes>
+        <CartProvider>
+            <NavBar />
+            <div className="mainContainer">  
+              <NavFiltros />
+              <Routes>  
+                <Route path='/' element={<ItemListContainer 
+                                          texto1="Bienvenido a Poke Store" 
+                                          texto2="La primera tienda de Stickers de Pokémon" 
+                                          texto3="Busca el tipo que te guste y Atrapalos YA !!!" />}     
+                />
+                <Route path='/tipo/:idTipo' element={<ItemListContainer 
+                                            texto1="Bienvenido a Poke Store" 
+                                            texto2="La primera tienda de Stickers de Pokémon" 
+                                            texto3="Busca el tipo que te guste y Atrapalos YA !!!" />}     
+                />
+               <Route path='/detalle/:id' element={<ItemDetailContainer />} />
+               <Route path='/cart' element={<Cart />} /> 
+              </Routes>
+            </div>
+        </CartProvider>
       </BrowserRouter>
     </div>  
   )

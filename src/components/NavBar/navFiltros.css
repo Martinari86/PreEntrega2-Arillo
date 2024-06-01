@@ -3,11 +3,12 @@
 .listaFiltro{
     
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     list-style: none;
     gap:30px;
     text-align: center;
     justify-content: space-around;
+    
 }
 
 .tipoFiltro{
