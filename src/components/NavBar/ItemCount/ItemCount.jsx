@@ -38,7 +38,7 @@ const ItemCount = ({stock,addProduct}) => {
                                 <button className="botonAgregarCarrito" onClick={handleAddToCart}>PokeBola VE !!!</button>
                             </div>
       }
-      
+     
     </div>
   )
 }

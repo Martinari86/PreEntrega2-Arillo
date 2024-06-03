@@ -1,6 +1,8 @@
 import { createContext} from "react"
 import React from 'react'
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
+
 
 //Se crea el contexto
 const CartContext = createContext()
@@ -51,8 +53,13 @@ const precioTotal = () =>{
     return precioTotalSticker
 }
 
+const navigate = useNavigate()
+const goBack = () => {
+    navigate(-1);
+  };
+
 return(
-        <CartContext.Provider value={ {carrito, addPokemon, cantidadTotalPokemon, vaciarCarrito, borrarStickerPorId, precioTotal} }>  
+        <CartContext.Provider value={ {carrito, addPokemon, cantidadTotalPokemon, vaciarCarrito, borrarStickerPorId, precioTotal, goBack} }>  
             {children}
         </CartContext.Provider>
     )

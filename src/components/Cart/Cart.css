@@ -1,12 +1,91 @@
-.contenedorPrincipalCart{
+.contenedorCart{
+    display: flex;
     width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorPrincipalCart{
+    width: 80%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    gap: 10px
+    justify-content:fl;
+    align-items:center;
+    
 }
 
 .imagenCart{
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
+}
+
+.textoCart,
+.precioTotalCart,
+.textoCarritoVacio
+     {
+    width: 100%;
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    height: auto;
+    margin:20px;
+    margin-left: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.nombreCart,
+.cantidadCart,
+.precioCart,
+.precioParcialCart
+ {
+    width: 60%;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    height: auto;
+    margin:0;
+    margin-left: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.contenedorBotonesCart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.BotonesCart,
+.botonVolverCart{
+    width: 14rem;
+    height: 2rem;
+    margin: 10px 20px;
+    background-color:#ffcb05;
+    font-weight: bold;
+    border: 3px;
+    border-style:inset;
+    border-color: #2a75bb;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    color: blue;
+}
+
+.botonesQuitarCart{
+    width: 20%;
+    height: 5rem;
+    margin: 10px 20px;
+    background-color:#ffcb05;
+    font-weight: bold;
+    border: 3px;
+    border-style:inset;
+    border-color: #2a75bb;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    color: blue;
 }

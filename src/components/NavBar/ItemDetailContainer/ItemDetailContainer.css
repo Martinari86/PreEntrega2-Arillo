@@ -1,6 +1,7 @@
 .contenedorItemDetailContanier{
     
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -15,6 +16,7 @@
 .contenedorItemDetailContanierTexto1,
 .contenedorItemDetailContanierTexto2{
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: space-between;
     gap: 15px
@@ -60,3 +62,22 @@
     text-align: center;
     margin:0
 }
+
+.textoRenderizadoItemDetailContainer{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        height: auto;
+        margin-top:50px;
+        font-size: 75px;
+        animation: fadeInOut 1.5s infinite;
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    @keyframes fadeInOut {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+      }   

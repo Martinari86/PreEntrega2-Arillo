@@ -1,0 +1,17 @@
+.contenedorCheckOut{
+    display: flex;
+    flex-direction: column;
+    gap:20px
+
+}
+
+.textoCheckout{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    height: auto;
+    margin:0;
+    margin-left: 10px;
+    font-weight: bold;
+    text-align: left;
+    
+}

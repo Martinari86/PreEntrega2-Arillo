@@ -10,31 +10,34 @@ const Cart = () => {
 
     if(carrito.length === 0){
     
-    return (
+  return (
             <div>
-                <p className='textoCarritoVacio'>No atrapaste ningun Pokemon</p>
-                <Link to="/"><button>Vayamos a Atraparlos</button></Link>
+                <p className='textoCarritoVacio'>Todavía No Atrapaste Ningún Pokemon</p>
+                <Link to="/"><button className="botonVolverCart">Ir a Atraparlos</button></Link>
             </div> 
         )
     }
 
   return (
-    <div>
-        <p>Mi POKE-DEX</p>
+    <div className='contenedorCart'>
+        <p className='textoCart'>Mi POKE-DEX</p>
       {
         carrito.map( (stickerPokemon) =>(
             <div className='contenedorPrincipalCart' key={stickerPokemon.id}>
                 <img className="imagenCart" src={stickerPokemon.imagen}></img>
-                <p className="nombreCart">Nombre: {stickerPokemon.nombre}</p>  
-                <p className="cantidadCart">Cantidad Pedida: {stickerPokemon.cantidad}</p>  
-                <p className="precioCart">Precio Unitario: {stickerPokemon.precio}USD/sticker</p>   
-                <p className="precioParcialCart">Precio Parcial: {stickerPokemon.precio * stickerPokemon.cantidad} USD</p>    
-                <button onClick={ () =>borrarStickerPorId(stickerPokemon.id) }>Quitar del PokeDex</button>   
+                <p className="nombreCart">Pokemon: {stickerPokemon.nombre}</p>  
+                <p className="cantidadCart">Pedidos: {stickerPokemon.cantidad}</p>  
+                <p className="precioCart">Precio: {stickerPokemon.precio}USD/sticker</p>   
+                <p className="precioParcialCart">Parcial: {stickerPokemon.precio * stickerPokemon.cantidad} USD</p>    
+                <button className='botonesQuitarCart' onClick={ () =>borrarStickerPorId(stickerPokemon.id) }>Quitar del PokeDex</button>   
             </div>
         ))
       }
-    <p className="precioTotalCart">Total de la Compra: {precioTotal()} </p>    
-    <button onClick={vaciarCarrito}>Borrar PokeDex</button>  
+    <p className="precioTotalCart">Total de la Compra: {precioTotal()} USD </p>    
+      <div className='contenedorBotonesCart'>  
+        <Link to="/checkout"><button className='BotonesCart'>Continuar con mi Compra</button></Link>
+        <button className='BotonesCart' onClick={vaciarCarrito}>Borrar PokeDex</button>  
+      </div>
     </div>
   )
 }

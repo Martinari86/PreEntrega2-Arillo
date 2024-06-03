@@ -14,9 +14,9 @@ const NavBar = () =>{
                 </div>
             </Link>
             <ul className="lista">
-                <li className="elemento">Poke Home</li>
-                <li className="elemento">Entrenadores PokeStore</li>
-                <li className="elemento">Centro PokeStore</li>
+            <Link className="elemento" to="/"><li className="elemento">Poke Home</li></Link>
+            <Link className="elemento" to="/enConstruccion"><li className="elemento">Entrenadores PokeStore</li> </Link>
+            <Link className="elemento" to="/enConstruccion"><li className="elemento">Centro PokeStore</li> </Link>
             </ul>
             <CartWidget />
         </div>

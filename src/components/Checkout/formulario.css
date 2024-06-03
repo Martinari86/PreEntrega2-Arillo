@@ -1,0 +1,35 @@
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+
+
+.etiquetaFormulario
+ {
+    
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    height: auto;
+    margin:0;
+    margin-left: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+
+.botonFormulario{
+    width: 14rem;
+    height: 2rem;
+    margin: 10px 20px;
+    background-color:#ffcb05;
+    font-weight: bold;
+    border: 3px;
+    border-style:inset;
+    border-color: #2a75bb;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    color: blue;
+}

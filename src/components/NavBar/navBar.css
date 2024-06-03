@@ -1,7 +1,9 @@
 .contenedor{
+    height: 60px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 200px;
+    margin-bottom: 20px;
 }
 
 .contenedorImagen{
@@ -21,7 +23,15 @@
 }
 
 .elemento{
+    width: auto;
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: large;
+    text-align: center;
+    color: black;
+}
+
+.elemento:hover{
+    font-weight: bold;
+  
 }

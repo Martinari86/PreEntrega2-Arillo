@@ -1,8 +1,19 @@
+.contenedorItemDetailContanier{
+width: 100vw;
+height: 80vh;
+margin: 0px;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+gap:0px
+}
+
 .contenedorItemDetailContanier2{
-    width: 100%;
+ 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 .contenedorItemDetailContanierTexto1,
@@ -58,3 +69,21 @@
     margin:0
 }
 
+.botonVolverItemDetailContanier{
+    width: 80%;
+    height: 2rem;
+    margin-top: 10px;
+    background-color:#ffcb05;
+    font-weight: bold;
+    border: 3px;
+    border-style:inset;
+    border-color: #2a75bb;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

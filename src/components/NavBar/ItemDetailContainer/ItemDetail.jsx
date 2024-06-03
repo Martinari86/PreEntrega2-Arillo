@@ -4,14 +4,15 @@ import "./ItemDetail.css"
 import ItemCount from "../ItemCount/ItemCount"
 import { useContext } from "react"
 import { CartContext } from "../../../context/CartContext"
+import { useNavigate } from "react-router-dom";
 
 const ItemDetail = ({ pokemonDetalle }) => {
     //console.log(pokemonDetalle);
-    const{addPokemon} =useContext(CartContext)
-    
+    const{addPokemon, goBack} =useContext(CartContext)
     const [tiposArray,setTiposArray]=useState([])
     const [ataquesArray,setAtaquesArray] = useState([])
-    
+   
+
     useEffect(()=>{
     setTiposArray(pokemonDetalle.tipo);
     setAtaquesArray(pokemonDetalle.ataques);
@@ -27,6 +28,8 @@ const ItemDetail = ({ pokemonDetalle }) => {
         addPokemon(productCart);
         
       } 
+    
+  
 
 
     return (
@@ -50,9 +53,11 @@ const ItemDetail = ({ pokemonDetalle }) => {
        
             <p className="textoPrecio">Precio</p>
             <p className="textoItemDetailContanier2">{pokemonDetalle.precio} USD</p>
-            <ItemCount stock={pokemonDetalle.id} addProduct={addProduct}/>  
+            <ItemCount stock={pokemonDetalle.stock} addProduct={addProduct}/> 
+            <button className="botonVolverItemDetailContanier" onClick={goBack}>Volver para Atraparlos</button> 
      </div>  
-    </div>
+     
+     </div>
   )
 }
 

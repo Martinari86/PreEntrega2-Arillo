@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 const Item = ({elemento}) => {
   const tiposArray = elemento.tipo
   //console.log(tipos);
+  //Retorna la CARD con el STICKER
   return (
     <div className="contenedorItemCard">
       <div className="contenedorItem">
@@ -22,7 +23,7 @@ const Item = ({elemento}) => {
                         }
                     </div>
                  </div>
-                 <Link className="linkItem" to={"/detalle/"+ elemento.id}> Click Para Atraparlo </Link>       
+                 <Link className="linkItem" to={"/detalle/"+ elemento.identificacion}><button className="botonAtrapaloItem"> Atrapalo YA ! </button></Link>       
         </div>
     </div>
   )

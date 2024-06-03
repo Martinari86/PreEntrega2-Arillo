@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavFiltros from './components/NavBar/NavFiltros'
 import { CartProvider } from './context/CartContext'
 import Cart from './components/Cart/Cart'
+import Checkout from './components/Checkout/Checkout'
+import Enconstruccion from './components/Enconstruccion/Enconstruccion'
 
 
 function App() {
@@ -17,7 +19,7 @@ function App() {
         <CartProvider>
             <NavBar />
             <div className="mainContainer">  
-              <NavFiltros />
+              
               <Routes>  
                 <Route path='/' element={<ItemListContainer 
                                           texto1="Bienvenido a Poke Store" 
@@ -31,6 +33,8 @@ function App() {
                 />
                <Route path='/detalle/:id' element={<ItemDetailContainer />} />
                <Route path='/cart' element={<Cart />} /> 
+               <Route path="/checkout" element={<Checkout />} /> 
+               <Route path="/enConstruccion" element={<Enconstruccion />} /> 
               </Routes>
             </div>
         </CartProvider>

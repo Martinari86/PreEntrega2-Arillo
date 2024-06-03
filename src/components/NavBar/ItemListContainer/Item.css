@@ -1,5 +1,12 @@
 .contenedorItemCard{
-    border: 2px red solid;
+    border: 3px red solid;
+}
+.contenedorItemCard:hover{
+    transform: scale(1.05);  
+    border: 3px #2a75bb solid;
+    -webkit-box-shadow: 4px -3px 38px 0px #2a75bb;
+    -moz-box-shadow: 4px -3px 38px 0px #2a75bb;
+    box-shadow: 4px -3px 38px 0px #2a75bb;
 }
 
 .contenedorItem{
@@ -62,4 +69,20 @@
 
 .linkItem:hover{
     font-weight: bold;
+}
+
+.botonAtrapaloItem{
+    width: 14rem;
+    height: 2rem;
+    margin: 10px 20px;
+    background-color:#ffcb05;
+    font-weight: bold;
+    border: 3px;
+    border-style:inset;
+    border-color: #2a75bb;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    color: blue; 
 }
