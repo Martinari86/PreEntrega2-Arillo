@@ -5,18 +5,20 @@ import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import db from "../../../db/db.js"
+import { toast } from "react-toastify"
 
+//Componente que me trae el detalle del producto
 const ItemDetailContainer = () => {
   
   const [pokemonDetalle, setPokemonDetalle] = useState({})
   const [loading, setLoading] = useState(false)
   const {id}= useParams()
   //console.log(id);
-  
+  //La funcion me trae la informacion del producto especifico que estoy mirando
   const getSticker = () =>{
     setLoading(true)
     const stickerRef = doc(db,"pokemon",id)
-
+    //Se setea un TIMEOUT. No es necesario hacerlo, pero es para que se aprecie el renderizado condicional.
     setTimeout(()=>{  
           getDoc(stickerRef)
           .then( (dataStickerDb)=>{
@@ -24,7 +26,9 @@ const ItemDetailContainer = () => {
               setPokemonDetalle(data)
               console.log(pokemonDetalle);  
           })
-          //.catch()
+          .catch(()=>{
+            toast.error("Error del Servidor, intente nuevamente")
+          })
           .finally(()=>{
             setLoading(false)
           })

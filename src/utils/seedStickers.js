@@ -1363,6 +1363,7 @@ const listaPokemon = [
         "stock": 1}
     ]
 
+//Funcion para agarrar mi JSON y migrarlo masivamente a FIREBASE
 const seedStickers = () => {
     listaPokemon.map ((registros) => {
         addDoc(collection(db,"pokemon"),registros)

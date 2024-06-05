@@ -29,9 +29,6 @@ const ItemDetail = ({ pokemonDetalle }) => {
         
       } 
     
-  
-
-
     return (
     <div className="contenedorItemDetailContanier">
      <img className="imagenItemDetailContanier" src={pokemonDetalle.imagen} alt={pokemonDetalle.nombre}></img>

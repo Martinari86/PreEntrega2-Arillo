@@ -5,6 +5,7 @@ import { useContext } from "react"
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
+//Componenete CARRITO del NAVBAR
 const CartWidget = () => {
   const {carrito}=useContext(CartContext)
   const {cantidadTotalPokemon} = useContext(CartContext)

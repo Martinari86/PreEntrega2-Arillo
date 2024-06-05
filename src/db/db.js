@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
+//Credenciales de Fire Base
 const firebaseConfig = {
     apiKey: "AIzaSyDDmcorzeRMt6gHMt8ZrvuTL9GEKWSxY1I",
     authDomain: "pokestore-57750.firebaseapp.com",

@@ -17,13 +17,17 @@ function App() {
 
   return (
     <div>
+      {/* Se envuelve con componenete de navegacion */}
       <BrowserRouter>
+        {/* Se envuelve con el contexto */}
         <CartProvider>
             <NavBar />
+            {/* Se declara el componenete de TOAST */}
             <ToastContainer theme="light" />
             <div className="mainContainer">  
-              
+              {/*Componenete que engloba las rutas */}
               <Routes>  
+                {/* Componente para declarar la Ruta que queremos y se asigna el componenete */}
                 <Route path='/' element={<ItemListContainer 
                                           texto1="Bienvenido a Poke Store" 
                                           texto2="La primera tienda de Stickers de Pokémon" 

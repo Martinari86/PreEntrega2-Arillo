@@ -9,10 +9,10 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 const Cart = () => {
     const {carrito, vaciarCarrito, borrarStickerPorId, precioTotal} = useContext(CartContext)
 
-    if(carrito.length === 0){
+  if(carrito.length === 0){
     
   return (
-            <div>
+            <div className='contenedorCart'>
                 <p className='textoCarritoVacio'>Todavía No Atrapaste Ningún Pokemon</p>
                 <Link to="/"><button className="botonVolverCart">Ir a Atraparlos</button></Link>
             </div> 

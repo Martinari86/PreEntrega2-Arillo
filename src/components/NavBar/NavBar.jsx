@@ -3,8 +3,8 @@ import CartWidget from "./CartWidget"
 import "./navBar.css"
 import { Link } from "react-router-dom"
 
+//Componenete de barra de navegacion (HEADER)
 const NavBar = () =>{
-
 
     return (
         <div className="contenedor">    

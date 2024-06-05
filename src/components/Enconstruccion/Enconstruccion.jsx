@@ -2,6 +2,7 @@ import React from 'react'
 import enfermeraJoy from "../../assets/imagenes/enfermeraJoy.jpg"
 import "./enContruccion.css"
 
+//Componenete de la pagina "EN CONTRUCCION"
 const Enconstruccion = () => {
   return (
     <div className='contenedorEnContruccion'>

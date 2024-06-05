@@ -10,24 +10,25 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 
+//Componente que muestra el listado de productos
 
 const ItemListContainer = ({texto1,texto2,texto3}) => {
-
+//Declaracion de variables de estado
 const [pokemon, setPokemon] = useState([])
 const [loading, setLoading] = useState(false)
 const {idTipo} = useParams() 
 
 
-console.log(loading);
-
-
-
+//console.log(loading);
+//Funcion para obtener los productos
   const getStickers = () =>{
       setLoading(true)
       const stickersRef = collection(db,"pokemon")
-      
+      //Evaluacion de la existencia del filtro idTipo
       if(idTipo){
+      //Se guarda en una variables una consulta a la base de FIREBASE, que me traiga los prodcutos filtrados y ordenados
       const q = query(stickersRef, where("tipo", "array-contains", idTipo), orderBy("id", "asc"))
+        //Se setea un TIMEOUT. No es necesario hacerlo, pero es para que se aprecie el renderizado condicional.
         setTimeout(()=>{    
             getDocs(q)
             .then((stickersDb)=> {
@@ -44,8 +45,10 @@ console.log(loading);
             })
           },"2000")
       } else {
+              //Se guarda en una variables una consulta a la base de FIREBASE, que me traiga los prodcutos ordenados
               const q = query(stickersRef, orderBy("id", "asc"))  
-               setTimeout(()=>{   
+              //Se setea un TIMEOUT. No es necesario hacerlo, pero es para que se aprecie el renderizado condicional.
+              setTimeout(()=>{   
                   getDocs(q)
                   .then((stickersDb)=> {
                     console.log(loading);
@@ -66,12 +69,9 @@ console.log(loading);
     }
   
 
-
-
-  useEffect(()=>{
+useEffect(()=>{
       getStickers()
 },[idTipo])  
-
 
   //console.log(pokemon);  
 

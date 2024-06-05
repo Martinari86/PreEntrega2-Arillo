@@ -10,6 +10,7 @@ import "./checkout.css"
 import validateForm from '../../utils/validationYup.js'
 import { toast } from 'react-toastify'
 
+//Componente que muestra el resumen de la compra 
 
 const Checkout = () => {
 
@@ -26,12 +27,15 @@ const [datosForm, setDatosForm]=useState(
 
 const [idOrden, setIdOrden]=useState(null)
 
+//Funcion que detecta lo que ingresa el usuario en los imput
 const handleChangeInput = (event)=>{
     console.log(event.target.name);
     setDatosForm({...datosForm, [event.target.name]: event.target.value})
 }
 
+//Funcion de UPLOAD del formulario a la base de datos
 const handleSubmitForm = async (event)=>{
+    //Esta setencia es para que quede todo como esta y no se pierda la informacion
     event.preventDefault()
     //console.log(datosForm);
     const orden ={
@@ -43,9 +47,10 @@ const handleSubmitForm = async (event)=>{
     try{
     //Se valida el formulario antes de Ejectuar la Orden y se guarda en una variable
     const response = await validateForm(datosForm)
-    console.log(response.status);
+    //console.log(response.status);
     //Una vez validado el formulario se genera la orden
-    if(response.status==="succes" && response.email === response.emailVerificacion){  
+    //Se chequea que el formulario este validado y los emails sean iguales
+    if(response.status==="succes" && datosForm.email === datosForm.emailVerificacion){  
             generarOrden(orden)
             }else{
                 {response.email === response.emailVerificacion ? toast.warning("Los Correos no Coinciden") :
@@ -59,23 +64,24 @@ const handleSubmitForm = async (event)=>{
     }
 }
 
+//Funcion Generar Orden, agarra los datos y la envia a FireBase
 const generarOrden = (orden) =>{
     const ordenesRef = collection (db,"ordenes")
     addDoc(ordenesRef, orden)
         .then((respuesta)=>{
             setIdOrden(respuesta.id); //Agregar un SWEETALERT para devolver el ID 
         })
-        .catch((error)=>console.log(error))
+        .catch((error)=>toast.error("Error en la generación de la orden, intente nuevamente"))
         .finally(()=>{
             //Funcion para reducir el stock
             updateStock()
-            vaciarCarrito()
-            
+            //Funcion para vaciar Carrito
+            vaciarCarrito()   
           }
-        )
-         
+        )      
 }
 
+//Funcion para actualizar el stock
 const updateStock= () => {
     carrito.map((sticker) => {
         let cantidad = sticker.cantidad
@@ -83,7 +89,7 @@ const updateStock= () => {
         delete sticker.cantidad
         const stickerRef = doc(db,"pokemon", sticker.identificacion)
         setDoc(stickerRef,{...sticker, stock: sticker.stock - cantidad})
-            .then(()=>toast.info("Actualizacion Correcta"))
+            .then(()=>console.log("Actualizacion Correcta"))
             .catch((error)=>toast.error("Error del Servidor, intente nuevamente"))
         })
     }

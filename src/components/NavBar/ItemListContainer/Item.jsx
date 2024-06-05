@@ -2,10 +2,10 @@
 import "./Item.css"
 import { Link } from "react-router-dom"
 
+//Componente que retorna la CARD del producto
 const Item = ({elemento}) => {
   const tiposArray = elemento.tipo
   //console.log(tipos);
-  //Retorna la CARD con el STICKER
   return (
     <div className="contenedorItemCard">
       <div className="contenedorItem">

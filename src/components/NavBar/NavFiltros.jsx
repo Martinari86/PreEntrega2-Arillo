@@ -1,6 +1,7 @@
 import "./navFiltros.css"
 import { Link } from "react-router-dom"
 
+//Componenete que devuelve el listado de filtros (SIDEBAR)
 const NavFiltros = () => {
   return (
     <div>

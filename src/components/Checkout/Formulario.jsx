@@ -1,6 +1,8 @@
 import React from 'react'
 import "./formulario.css"
 
+//Componente Formulario 
+
 const Formulario = ({datosForm, handleChangeInput, handleSubmitForm}) => {
   return (
        <div> 
@@ -12,7 +14,7 @@ const Formulario = ({datosForm, handleChangeInput, handleSubmitForm}) => {
               <label className='etiquetaFormulario'>Email</label>
               <input className='inputFormulario' type="text" name="email" value={datosForm.email} onChange={handleChangeInput} />
               <label className='etiquetaFormulario'>Repetir Email</label>
-              <input className='inputFormulario' type="text" name="email" value={datosForm.email} onChange={handleChangeInput} />
+              <input className='inputFormulario' type="text" name="emailVerificacion" value={datosForm.emailVerificacion} onChange={handleChangeInput} />
               <button className='botonFormulario' type="submit">Enviar Orden</button>
               
           </form>
