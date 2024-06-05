@@ -87,3 +87,10 @@ gap:0px
     justify-content: center;
     align-items: center;
 }
+
+.botonVolverItemDetailContanier:hover {
+    background-color: #c7a008;
+    border-color: #3c5aa6;
+  }
+
+

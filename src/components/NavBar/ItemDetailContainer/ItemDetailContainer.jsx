@@ -16,17 +16,20 @@ const ItemDetailContainer = () => {
   const getSticker = () =>{
     setLoading(true)
     const stickerRef = doc(db,"pokemon",id)
-    getDoc(stickerRef)
-      .then( (dataStickerDb)=>{
-          const data = {identificacion: dataStickerDb.id, ...dataStickerDb.data() }
-          setPokemonDetalle(data)
-          console.log(pokemonDetalle);  
-      })
-      //.catch()
-      .finally(
-        setLoading(false)
-      )
-  }
+
+    setTimeout(()=>{  
+          getDoc(stickerRef)
+          .then( (dataStickerDb)=>{
+              const data = {identificacion: dataStickerDb.id, ...dataStickerDb.data() }
+              setPokemonDetalle(data)
+              console.log(pokemonDetalle);  
+          })
+          //.catch()
+          .finally(()=>{
+            setLoading(false)
+          })
+        },"2000")
+        }
   console.log(pokemonDetalle);
   useEffect(()=>{
    getSticker()

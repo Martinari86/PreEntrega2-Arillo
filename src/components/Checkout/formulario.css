@@ -8,13 +8,12 @@
 .etiquetaFormulario
  {
     
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     height: auto;
     margin:0;
-    margin-left: 10px;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
 }
 
 
@@ -32,4 +31,8 @@
     font-size: 15px;
     text-align: center;
     color: blue;
+}
+
+.botonFormulario:hover {
+    transform: scale(1.1);
 }

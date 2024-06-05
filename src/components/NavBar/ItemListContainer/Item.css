@@ -12,6 +12,7 @@
 .contenedorItem{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .contenedorItem2{
@@ -56,7 +57,7 @@
     margin:0;
     margin-left: 10px;
     font-weight: bold;
-    text-align: left;
+    width: 100%;
 }
 
 .linkItem{
@@ -85,4 +86,8 @@
     font-size: 15px;
     text-align: center;
     color: blue; 
+}
+
+.botonAtrapaloItem:hover{
+  transform: scale(1.2);
 }

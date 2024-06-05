@@ -1,12 +1,14 @@
 import "./ItemListContainer.css"
 //import getListaPokemon from "../../../data/data";
-import { useEffect, useState } from "react";
 import ItemList2 from "./ItemList2";
 //import NavFiltros from "../NavFiltros";
 import { useParams } from "react-router-dom";
-import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import db from "../../../db/db";
 import NavFiltros from "../NavFiltros";
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+
 
 
 const ItemListContainer = ({texto1,texto2,texto3}) => {
@@ -17,42 +19,57 @@ const {idTipo} = useParams()
 
 
 console.log(loading);
-const getStickers = () =>{
-  const stickersRef = collection(db,"pokemon")
-  setLoading(true)
-if(idTipo){
-  const q = query(stickersRef, where("tipo", "array-contains", idTipo))
-  getDocs(q)
-  .then((stickersDb)=> {
-    console.log(loading);
-    const dataSticker = stickersDb.docs.map((sticker)=>{
-      return {identificacion: sticker.id, ...sticker.data()}
-    })
-    console.log(dataSticker);
-    setPokemon(dataSticker);
-  })
-  //.catch
-  .finally( 
-    setLoading(false)
-    )
-} else{
-  const q = query(stickersRef, orderBy("id", "asc"))  
-  getDocs(q)
-    .then((stickersDb)=> {
-      const dataSticker = stickersDb.docs.map((sticker)=>{
-        return {identificacion: sticker.id, ...sticker.data()}
-      })
-      setPokemon(dataSticker);
-    })
-    //.catch
-    .finally(
-      setLoading(false)
-    )
-  }
-}
+
+
+
+  const getStickers = () =>{
+      setLoading(true)
+      const stickersRef = collection(db,"pokemon")
+      
+      if(idTipo){
+      const q = query(stickersRef, where("tipo", "array-contains", idTipo), orderBy("id", "asc"))
+        setTimeout(()=>{    
+            getDocs(q)
+            .then((stickersDb)=> {
+            const dataSticker = stickersDb.docs.map((sticker)=>{
+              return {identificacion: sticker.id, ...sticker.data()}
+            })
+            setPokemon(dataSticker);
+            })
+            .catch(()=>{
+              toast.error("Error del Servidor, intente nuevamente")
+            })
+            .finally(()=>{
+              setLoading(false)
+            })
+          },"2000")
+      } else {
+              const q = query(stickersRef, orderBy("id", "asc"))  
+               setTimeout(()=>{   
+                  getDocs(q)
+                  .then((stickersDb)=> {
+                    console.log(loading);
+                    const dataSticker = stickersDb.docs.map((sticker)=>{
+                      return {identificacion: sticker.id, ...sticker.data()}
+                    })
+                    console.log(dataSticker);
+                    setPokemon(dataSticker);
+                  })
+                  .catch(()=>{
+                    toast.error("Error del Servidor, intente nuevamente")
+                  })
+                  .finally(()=>{
+                    setLoading(false)
+                  })
+                },"2000")
+            }
+    }
+  
+
+
 
   useEffect(()=>{
-    getStickers()
+      getStickers()
 },[idTipo])  
 
 

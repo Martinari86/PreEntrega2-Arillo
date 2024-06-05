@@ -26,7 +26,7 @@ const ItemCount = ({stock,addProduct}) => {
     <div>
       
       {
-        stickerAgregado ? <Link className="linkItemCount" to="/Cart"><button className="botonIrCarrito">Ir al Carrito</button></Link> : 
+        stickerAgregado ? <Link className="linkItemCount" to="/Cart"><button className="botonIrCarrito">Ver tu Coleccion Pokemon</button></Link> : 
                             
                             <div className="contenedorPrincipalItemCount">
                                 <p className="textoItemCount">Cuantos vas a atrapar?</p>

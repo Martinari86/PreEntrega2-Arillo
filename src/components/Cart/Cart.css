@@ -75,17 +75,16 @@
 }
 
 .botonesQuitarCart{
-    width: 20%;
-    height: 5rem;
-    margin: 10px 20px;
-    background-color:#ffcb05;
-    font-weight: bold;
-    border: 3px;
-    border-style:inset;
-    border-color: #2a75bb;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 15px;
-    text-align: center;
+    height: 100px;
+    width: 100px;
     color: blue;
+}
+
+.botonesQuitarCart:hover{
+    color:#ffcb05;
+    transform: scale(1.1);
+}
+
+.BotonesCart:hover {
+    transform: scale(1.1);
 }

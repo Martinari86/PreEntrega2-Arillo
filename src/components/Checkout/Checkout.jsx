@@ -7,6 +7,9 @@ import { addDoc, collection, doc, setDoc, Timestamp } from 'firebase/firestore'
 import { Link } from 'react-router-dom'
 import db from '../../db/db.js'
 import "./checkout.css"
+import validateForm from '../../utils/validationYup.js'
+import { toast } from 'react-toastify'
+
 
 const Checkout = () => {
 
@@ -16,7 +19,8 @@ const [datosForm, setDatosForm]=useState(
     {
         nombre:"",
         telefono:"",
-        email:""
+        email:"",
+        emailVerificacion:""
     }
 )
 
@@ -27,7 +31,7 @@ const handleChangeInput = (event)=>{
     setDatosForm({...datosForm, [event.target.name]: event.target.value})
 }
 
-const handleSubmitForm = (event)=>{
+const handleSubmitForm = async (event)=>{
     event.preventDefault()
     //console.log(datosForm);
     const orden ={
@@ -36,8 +40,23 @@ const handleSubmitForm = (event)=>{
         fecha: Timestamp.fromDate(new Date()),
         total: precioTotal() 
     }
-    generarOrden(orden)
-//console.log(orden);
+    try{
+    //Se valida el formulario antes de Ejectuar la Orden y se guarda en una variable
+    const response = await validateForm(datosForm)
+    console.log(response.status);
+    //Una vez validado el formulario se genera la orden
+    if(response.status==="succes" && response.email === response.emailVerificacion){  
+            generarOrden(orden)
+            }else{
+                {response.email === response.emailVerificacion ? toast.warning("Los Correos no Coinciden") :
+                toast.warning("Complete Datos Obligatorios") 
+                }    
+            }
+    //console.log(orden);
+    }
+    catch{
+        toast.error("Error del Servidor, intente nuevamente")
+    }
 }
 
 const generarOrden = (orden) =>{
@@ -48,7 +67,7 @@ const generarOrden = (orden) =>{
         })
         .catch((error)=>console.log(error))
         .finally(()=>{
-            //funcion para reducir el stock
+            //Funcion para reducir el stock
             updateStock()
             vaciarCarrito()
             
@@ -64,8 +83,8 @@ const updateStock= () => {
         delete sticker.cantidad
         const stickerRef = doc(db,"pokemon", sticker.identificacion)
         setDoc(stickerRef,{...sticker, stock: sticker.stock - cantidad})
-            .then(()=>console.log("Actualizacion correcta"))
-            .catch((error)=>console.log(error))
+            .then(()=>toast.info("Actualizacion Correcta"))
+            .catch((error)=>toast.error("Error del Servidor, intente nuevamente"))
         })
     }
  
@@ -77,13 +96,13 @@ return (
                     <div className='contenedorCheckOut'>  
                         <p className='textoCheckout'>Orden Generada con Exito</p>
                         <p className='textoCheckout'>Numero para seguimiento: {idOrden}</p>
-                        <Link to="/"><button>Sigamos Atrapando</button></Link>
+                        <Link to="/"><button className='botonContinuarCheckOut'>Sigamos Atrapando</button></Link>
                     </div>
                 ):
                 (
                     <div className='contenedorCheckOut'> 
                         <p className='textoCheckout'>Te falta poco para convertirte en un VERDADERO MAESTRO POKEMON</p>
-                        <p className='textoCheckout'>Completa tus Datos</p>
+                        <p className='textoCheckout'>Datos del Entrenador</p>
                         <Formulario datosForm={datosForm} handleChangeInput={handleChangeInput} handleSubmitForm={handleSubmitForm} />
                     </div>
                 )

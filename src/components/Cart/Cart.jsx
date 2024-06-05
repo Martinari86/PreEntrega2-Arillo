@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import "./Cart.css"
 import { Link } from 'react-router-dom'
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 
 const Cart = () => {
@@ -29,13 +30,13 @@ const Cart = () => {
                 <p className="cantidadCart">Pedidos: {stickerPokemon.cantidad}</p>  
                 <p className="precioCart">Precio: {stickerPokemon.precio}USD/sticker</p>   
                 <p className="precioParcialCart">Parcial: {stickerPokemon.precio * stickerPokemon.cantidad} USD</p>    
-                <button className='botonesQuitarCart' onClick={ () =>borrarStickerPorId(stickerPokemon.id) }>Quitar del PokeDex</button>   
+                <RiDeleteBin6Line className='botonesQuitarCart' onClick={ () =>borrarStickerPorId(stickerPokemon.id) }/>
             </div>
         ))
       }
     <p className="precioTotalCart">Total de la Compra: {precioTotal()} USD </p>    
       <div className='contenedorBotonesCart'>  
-        <Link to="/checkout"><button className='BotonesCart'>Continuar con mi Compra</button></Link>
+        <Link to="/checkout"><button className='BotonesCart'>Quiero Atraparlos</button></Link>
         <button className='BotonesCart' onClick={vaciarCarrito}>Borrar PokeDex</button>  
       </div>
     </div>

@@ -8,6 +8,8 @@ import { CartProvider } from './context/CartContext'
 import Cart from './components/Cart/Cart'
 import Checkout from './components/Checkout/Checkout'
 import Enconstruccion from './components/Enconstruccion/Enconstruccion'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
       <BrowserRouter>
         <CartProvider>
             <NavBar />
+            <ToastContainer theme="light" />
             <div className="mainContainer">  
               
               <Routes>  

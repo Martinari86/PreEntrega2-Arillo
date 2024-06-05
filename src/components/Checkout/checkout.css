@@ -1,6 +1,9 @@
 .contenedorCheckOut{
+    width: 100vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap:20px
 
 }
@@ -14,4 +17,23 @@
     font-weight: bold;
     text-align: left;
     
+}
+
+.botonContinuarCheckOut{
+    width: 14rem;
+    height: 2rem;
+    margin: 10px 20px;
+    background-color:#ffcb05;
+    font-weight: bold;
+    border: 3px;
+    border-style:inset;
+    border-color: #2a75bb;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    color: blue;
+}
+.botonContinuarCheckOut:hover{
+  transform: scale(1.1);
 }
